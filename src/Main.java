@@ -159,6 +159,65 @@ public class Main {
     }
 
 
+    //Строка-1: Инвертировать строку
+    public static String reverse(String s) {
+        System.out.println(new StringBuilder(s).reverse().toString());
+        return s;
+    }
+
+    public static int countWords(String s) {
+        String trimmed = s.trim();
+
+        if (trimmed.isEmpty()) return 0;
+
+        String[] words = trimmed.split("\\s+");
+
+        return words.length;
+
+    }
+
+    //Строка-3: Удалить повторы пробелов
+    public static String squeezeSpaces(String s) {
+        String trimmed = s.replaceAll("\\s+", " ").trim();
+
+        return trimmed;
+    }
+
+    //Строка-4: Проверка префикса/суффикса без учёта регистра
+    public static boolean startsWithIgnoreCase(String s, String prefix) {
+
+        boolean result = s.toLowerCase().contains(prefix.toLowerCase());
+
+        if (s.length() == 0 || prefix == null) throw new IllegalArgumentException(" строка не может быть пустой");
+
+        return result;
+    }
+
+    //Строка-5: Самая длинная подстрока без пробелов
+   /* public static String longestToken(String s) {
+
+    }*/
+
+    //Строка-6: Подсчитать вхождения подстроки
+    public static int countOccerrences(String s, String sub) {
+        int count = 0;
+        int index = 0;
+        int subLength = sub.length();
+
+       while (index <= s.length() - subLength) {
+            index = s.indexOf(sub, index);
+
+            if (index != -1) {
+                count++;
+                index += subLength;
+            } else break;
+
+        }
+
+       return count;
+    }
+
+
     public static void main(String[] args) {
         /*System.out.println(isEven(19));
 
@@ -186,8 +245,22 @@ public class Main {
 
         /*System.out.println(isNumericPalindrome(-123321));*/
 
-        Scanner sc = new Scanner(System.in);
+        /*Scanner sc = new Scanner(System.in);
         String s = sc.nextLine();
-        isStrongPassword(s);
+        isStrongPassword(s);*/
+
+        /*reverse("paupau");
+
+        System.out.println(countWords(" "));
+
+        System.out.println(squeezeSpaces("a    b   \t   c"));*/
+
+        //System.out.println(startsWithIgnoreCase("", "h"));
+
+        System.out.println(countOccerrences("abababa1aba", "aba"));
+
+
+
+
     }
 }
